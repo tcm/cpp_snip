@@ -23,9 +23,6 @@ main()
    SS.push_back(5);
    
    SS.push_back(6);
-
-
-   cout << "Loop by index:" << endl;
    
     ergebnis = arith_avg(SS);
     cout << ergebnis << endl;
