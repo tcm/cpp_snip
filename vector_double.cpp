@@ -4,7 +4,7 @@
 
 using namespace std;
 
-double arith_avg( vector<double> );
+double arith_avg( vector<double> lst);
 
 main()
 {
