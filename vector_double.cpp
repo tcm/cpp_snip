@@ -5,15 +5,19 @@
 #include <string>
 #include <ctime>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
 double arith_avg( vector<double>& lst );
 double median(vector<double>& lst);
+double graph_avg(vector<double>& lst);
+
 double arith_avg_file( ifstream& fin );
 void read_csv_file( ifstream& csv_data, vector<double>& lst );
 
 bool myfunction (double i, double j) { return (i<j); }
+
 
 main()
 {
@@ -39,10 +43,13 @@ main()
      // Sortieren.
      sort (SS.begin(), SS.end(), myfunction);
      
-     // Mittelwert berechnen.
-     //ergebnis = arith_avg(SS);
+     // Mittelwerte berechnen.
+     // ergebnis = arith_avg(SS);
+     // ergebnis = median(SS);
+     ergebnis = graph_avg(SS);
      
-     ergebnis = median(SS);
+     
+     
      cout << "Vector: " << ergebnis << endl;  
    }
    else cout << "Unable to open file" << endl;  
@@ -105,6 +112,30 @@ double median(vector<double>& lst) {
 
    
 }
+
+/* --------------------------------------------- */
+/* Graphisches Mittel (Vektor).                  */
+/* ----------------------------------------------*/
+double graph_avg(vector<double>& lst) {
+   double produkt = 1;
+   double anzahl = 0;
+   
+   anzahl = lst.size();
+   
+    // Über das Array iterieren.
+   int ii;
+   for(ii=0; ii < lst.size(); ii++)
+   {
+      cout << lst[ii] << endl;
+      produkt *= lst[ii];
+   }
+   
+    //cout << produkt << "   ";
+    //cout << anzahl << endl;
+   return pow(produkt, (1/anzahl)); 
+}
+
+
 
 
 /* --------------------------------------------- */
